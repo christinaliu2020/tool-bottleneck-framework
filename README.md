@@ -10,7 +10,7 @@ This repository contains the code for the Tool Bottleneck Framework, a *tool-cen
 
 ## Architecture
 
-![arch](figs/tbm_fig.png)
+![arch](figs/tbm_fig.jpg)
 
 ## Setup and Installation
 
