@@ -1,16 +1,25 @@
 # A Tool Bottleneck Framework for Clinically-Informed and Interpretable Medical Image Understanding
 
-This repository contains the code for the Tool Bottleneck Framework, a *tool-centric* pipeline for medical imaging tasks. This codebase allows users to:
-
-1. **Run domain tools** (e.g., HoVer-Net nuclei segmentation) to produce **tool output instance files**
-2. **Rasterize** those instances into aligned feature maps `[C, H, W]` (`.pt`).
-3. Use a **VLM tool router** to select which tools to rely on per image and task.
-4. **Train** the Tool Bottleneck Model with **tool dropout** regimes to be robust to missing or unreliable tools.
-5. **Infer** with the selected tools at test time.
-
-## Architecture
-
 ![arch](figs/tbm_fig.jpg)
+
+Implementation from the paper:
+>Christina Liu*, Alan Q. Wang*, Joy Hsu, Jiajun Wu, Ehsan Adeli, Tool Bottleneck Framework for Clinically-Informed and
+Interpretable Medical Image Understanding. Under Review, 2025
+
+**Tool Bottleneck Framework (TBF)** is a **tool-use pipeline for medical imaging** that pairs a vision-language model (VLM) with a **learned Tool Bottleneck Model (TBM)**. Instead of composing tools via text or code (which can miss **spatially localized** cues), TBF lets a VLM **select** clinically relevant tools for a given **image + task**, then the **TBM fuses the tool outputs as feature maps** and makes the final prediction. This yields **interpretable, clinically grounded** predictions and supports **arbitrary VLM selections** at test time.
+
+**Key ideas:**
+- **VLM-guided tool selection:** An off-the-shelf medical VLM routes each image to a subset of tools from a pre-specified toolbox.
+- **Neural composition, not text composition:** Tool outputs (e.g., instances, masks, cues) are **rasterized into aligned `[C,H,W]` maps** and fused by the **TBM** (a small neural net), which is better suited to spatial signals than textual composition.
+- **Robust to arbitrary/missing tools:** Training uses **tool dropout regimes** so the TBM can handle **any** VLM selection at inference.
+- **Interpretable & clinically grounded:** Predictions are anchored in domain tools (e.g., nuclei segmentation, dermoscopic structures), enabling inspection and intervention.
+
+**What this repository lets you do:**
+1. **Run domain tools** (e.g., HoVer-Net) to produce per-image **tool outputs** (instances, masks, scores).
+2. **Rasterize** tool outputs into **aligned feature maps** `[C, H, W]` (`.pt`) for learning.
+3. Use the **VLM tool router** to select tools per **image + task** and save selections to CSV/JSONL.
+4. **Train the TBM** with paper-aligned **dropout regimes** (Bernoulli/random, TBF w/ and w/o perturbation, All, Random-K) so the model stays reliable under **arbitrary** tool subsets.
+5. **Infer** with the VLM-selected tools at test time—no text-based composition required.
 
 ## Setup and Installation
 
