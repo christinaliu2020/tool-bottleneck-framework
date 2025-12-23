@@ -1,0 +1,28 @@
+name: tbm-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26
+  - pandas>=2.2
+  - pillow>=10
+  - matplotlib>=3.9
+  - scikit-image>=0.24
+  - scikit-learn>=1.5
+  - tqdm
+  - joblib
+  - pyyaml
+  - jupyterlab
+  - ipykernel
+  - pip:
+      # CPU only:
+      #- torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu
+      - torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+      - tiatoolbox==1.6.0
+      - wilds==2.0.0
+      - openai>=1.55.0
+      - openslide-python==1.4.1   
+      - opencv-python-headless==4.11.0.86
+      - black
+      - ruff

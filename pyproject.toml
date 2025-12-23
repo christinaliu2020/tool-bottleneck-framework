@@ -1,0 +1,9 @@
+[project]
+name = "tbm"
+version = "0.1.0"
+dependencies = ["torch", "torchvision", "tqdm", "joblib", "tiatoolbox", "pillow", "scikit-image", "numpy", "pandas", "openai"]
+
+[project.scripts]
+tbm-train = "tbm.train:main"
+tbm-predict = "tbm.predict:main"
+tbm-vlm-select = "tbm.vlm_tool_selector:main"
