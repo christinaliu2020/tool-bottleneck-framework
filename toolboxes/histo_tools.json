@@ -1,0 +1,7 @@
+{
+  "nuc_type": "Return nucleus type label (one-hot channels)",
+  "box": "Return nucleus bounding boxes as region mask",
+  "centroid": "Return nucleus centroids as point map",
+  "contour": "Return nucleus contours as filled mask",
+  "nuc_type_prob": "Return class-probability scores for the predicted nucleus type"
+}
