@@ -4,7 +4,7 @@
 
 Implementation from the paper:
 >Christina Liu*, Alan Q. Wang*, Joy Hsu, Jiajun Wu, Ehsan Adeli, Tool Bottleneck Framework for Clinically-Informed and
-Interpretable Medical Image Understanding. Under Review, 2025
+Interpretable Medical Image Understanding. Medical Imaging for Deep Learning, 2026.
 
 **Tool Bottleneck Framework (TBF)** is a **tool-use pipeline for medical imaging** that pairs a vision-language model (VLM) with a **learned Tool Bottleneck Model (TBM)**. Instead of composing tools via text or code (which can miss **spatially localized** cues), TBF lets a VLM **select** clinically relevant tools for a given **image + task**, then the **TBM fuses the tool outputs as feature maps** and makes the final prediction. This yields **interpretable, clinically grounded** predictions and supports **arbitrary VLM selections** at test time.
 
