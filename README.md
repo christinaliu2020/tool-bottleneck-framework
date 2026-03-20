@@ -162,10 +162,10 @@ python -m tbm.infer --features_root examples/outputs/features \
 
 ## Citation
 If you find this framework useful, please consider citing: 
-```bash
+```bibtex
 @article{liu2025tool,
   title={A Tool Bottleneck Framework for Clinically-Informed and Interpretable Medical Image Understanding},
-  author={Liu, Christina and Wang, Alan Q and Hsu, Joy and Wu, Jiajun and Adeli, Ehsan},
+  author={Liu, Christina and Wang, Alan Q. and Hsu, Joy and Wu, Jiajun and Adeli, Ehsan},
   journal={arXiv preprint arXiv:2512.21414},
   year={2025}
 }
